@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily News and Updates | World News</title>
+<style>
+:root{--red:#d71920;--ink:#171717;--muted:#686868;--paper:#f5f5f3;--line:#e3e3e0}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:white}
+a{color:inherit;text-decoration:none}.topline{background:#171717;color:white;padding:9px 5%;font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+header{padding:22px 5% 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-size:clamp(22px,3vw,34px);font-weight:900;letter-spacing:-1.2px}.brand span{color:var(--red)}.tagline{color:var(--muted);font-size:12px;margin-top:5px}
+.admin-button{background:var(--red);color:white;border:0;padding:12px 16px;font-weight:800;cursor:pointer;border-radius:3px}
+nav{padding:0 5%;display:flex;gap:26px;overflow:auto;border-bottom:1px solid var(--line);white-space:nowrap}nav a{font-weight:800;font-size:13px;padding:16px 0;border-bottom:3px solid transparent}nav a:hover{border-color:var(--red)}
+.breaking{background:var(--red);color:white;padding:12px 5%;display:flex;gap:14px;align-items:center;font-size:13px;font-weight:700}.breaking strong{background:white;color:var(--red);padding:5px 8px;letter-spacing:.5px}
+main{max-width:1200px;margin:30px auto;padding:0 24px}.section-heading{display:flex;align-items:center;gap:12px;margin:0 0 20px;font-size:21px}.section-heading:before{content:"";width:6px;height:25px;background:var(--red)}
+.hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:22px}.lead{position:relative;min-height:370px;background:#222;color:white;overflow:hidden;border-radius:4px}.lead img{width:100%;height:100%;min-height:370px;object-fit:cover;position:absolute;inset:0;opacity:.72}.lead:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.88))}.lead-content{position:absolute;z-index:1;bottom:25px;left:25px;right:25px}.kicker{color:var(--red);font-weight:900;text-transform:uppercase;font-size:11px;letter-spacing:1px}.lead .kicker{color:#ff6267}.lead h2{font-size:clamp(26px,3.4vw,42px);line-height:1.06;margin:10px 0}.meta{font-size:12px;opacity:.8}.side-stories{display:grid;grid-template-rows:1fr 1fr;gap:16px}.side-story{display:grid;grid-template-columns:42% 1fr;gap:14px;min-height:170px;border-bottom:1px solid var(--line);padding-bottom:14px}.side-story img{width:100%;height:150px;object-fit:cover;border-radius:3px}.side-story h3{font-size:19px;line-height:1.2;margin:8px 0}.story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:32px}.card{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:white}.card img{width:100%;height:175px;object-fit:cover;background:#eee}.card-body{padding:16px}.card h3{font-size:19px;line-height:1.25;margin:8px 0 10px}.card p{color:var(--muted);font-size:13px;line-height:1.55}.empty-image{height:175px;background:linear-gradient(135deg,#eee,#d9d9d9);display:grid;place-items:center;color:#777;font-weight:bold}
+footer{margin-top:50px;background:#171717;color:#ddd;padding:28px 5%;font-size:12px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.modal{display:none;position:fixed;inset:0;background:#0009;z-index:10;padding:20px;overflow:auto}.modal.open{display:block}.panel{max-width:700px;margin:30px auto;background:white;padding:24px;border-radius:5px}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.panel h2{margin-top:0}.close{border:0;background:#eee;font-size:22px;width:36px;height:36px;cursor:pointer}label{display:block;font-size:13px;font-weight:800;margin:15px 0 6px}input,select,textarea{width:100%;padding:12px;border:1px solid #ccc;border-radius:3px;font:inherit}textarea{min-height:130px;resize:vertical}.form-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}.secondary{padding:12px 16px;border:1px solid #ccc;background:white;cursor:pointer;font-weight:bold}.notice{font-size:12px;color:var(--muted);line-height:1.5}.published-item{border-top:1px solid var(--line);padding:12px 0;display:flex;justify-content:space-between;gap:12px;align-items:center}.published-item button{border:0;background:#eee;padding:8px;cursor:pointer}
+@media(max-width:760px){header{align-items:flex-start}.hero-grid{grid-template-columns:1fr}.lead{min-height:330px}.lead img{min-height:330px}.side-stories{grid-template-rows:auto}.story-grid{grid-template-columns:1fr}.side-story{min-height:130px}.side-story img{height:125px}main{padding:0 16px}.topline{padding:9px 16px}header,nav,.breaking{padding-left:16px;padding-right:16px}.admin-button{padding:10px;font-size:12px}}
+</style>
+</head>
+<body>
+<div class="topline"><span>WORLD NEWS • LATEST DEVELOPMENTS</span><span id="today"></span></div>
+<header><div><div class="brand">DAILY NEWS <span>&amp; UPDATES</span></div><div class="tagline">The world, clearly reported.</div></div><button class="admin-button" id="openAdmin">＋ PUBLISH A STORY</button></header>
+<nav><a href="#top">HOME</a><a href="#world">WORLD</a><a href="#politics">POLITICS</a><a href="#business">BUSINESS</a><a href="#technology">TECHNOLOGY</a><a href="#science">SCIENCE</a><a href="#latest">LATEST NEWS</a></nav>
+<div class="breaking"><strong>BREAKING</strong><span id="ticker">Your global news briefing starts here — publish a story to share your updates.</span></div>
+<main id="top">
+<h2 class="section-heading">Top Stories</h2>
+<section class="hero-grid" id="world">
+<article class="lead"><img src="https://images.unsplash.com/photo-1529101070884-7f6a1b9f6b5a?auto=format&fit=crop&w=1200&q=80" alt="United Nations flags outside a building"><div class="lead-content"><div class="kicker">World • Editor's pick</div><h2>Understanding the stories shaping our world</h2><div class="meta">DAILY NEWS &amp; UPDATES • EDITORIAL DESK</div></div></article>
+<div class="side-stories">
+<article class="side-story"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=500&q=80" alt="Modern office building"><div><div class="kicker">Business</div><h3>Markets, trade and the global economy</h3><div class="meta">News briefing</div></div></article>
+<article class="side-story"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=500&q=80" alt="Technology circuit board"><div><div class="kicker">Technology</div><h3>Innovation changing everyday life</h3><div class="meta">Technology desk</div></div></article>
+</div>
+</section>
+<h2 class="section-heading" id="latest" style="margin-top:36px">Latest Updates</h2>
+<div class="story-grid" id="stories">
+<article class="card"><img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=800&q=80" alt="World map"><div class="card-body"><div class="kicker">World News</div><h3>Welcome to your global news desk</h3><p>This is a demo story card. Use “Publish a Story” to add your own headline, article text, category and image.</p><div class="meta">DEMO CONTENT</div></div></article>
+<article class="card"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="Earth from space"><div class="card-body"><div class="kicker">Science</div><h3>Stories with a global perspective</h3><p>Share clear, informative updates and help readers understand events from around the world.</p><div class="meta">DEMO CONTENT</div></div></article>
+<article class="card"><img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=80" alt="Newspapers"><div class="card-body"><div class="kicker">Editorial</div><h3>Your voice. Your headlines.</h3><p>Publish your own reporting and images through the demo editor. Newly added stories appear here.</p><div class="meta">DEMO CONTENT</div></div></article>
+</div>
+</main>
+<footer><span><strong>DAILY NEWS &amp; UPDATES</strong> — World news and updates.</span><span>Independent demo concept • Verify facts before publishing.</span></footer>
+<div class="modal" id="adminModal" role="dialog" aria-modal="true" aria-labelledby="editorTitle"><div class="panel"><div class="panel-head"><h2 id="editorTitle">Publish a news story</h2><button class="close" id="closeAdmin" aria-label="Close">×</button></div>
+<form id="storyForm"><label for="headline">Headline *</label><input id="headline" required maxlength="140" placeholder="Write a clear, accurate headline">
+<label for="category">Category</label><select id="category"><option>World News</option><option>Politics</option><option>Business</option><option>Technology</option><option>Science</option><option>Health</option><option>Environment</option><option>Culture</option></select>
+<label for="summary">Short summary *</label><textarea id="summary" required maxlength="500" placeholder="Summarize the key facts for readers"></textarea>
+<label for="bodyText">Full article (optional)</label><textarea id="bodyText" placeholder="Write your article here..."></textarea>
+<label for="imageFile">Upload a picture (optional)</label><input id="imageFile" type="file" accept="image/*">
+<p class="notice">This demo saves stories in this browser on this device. It is not yet connected to a secure online database, public publishing server, or user login, so stories won't automatically appear on other devices.</p>
+<div class="form-actions"><button class="admin-button" type="submit">PUBLISH STORY</button><button class="secondary" type="button" id="cancelAdmin">Cancel</button></div></form>
+<h3 style="margin-top:28px">Stories saved in this browser</h3><div id="savedList"></div>
+</div></div>
+<script>
+const $=id=>document.getElementById(id);
+$('today').textContent=new Date().toLocaleDateString(undefined,{weekday:'short',year:'numeric',month:'short',day:'numeric'});
+const modal=$('adminModal');function openModal(){modal.classList.add('open');renderSaved()}function closeModal(){modal.classList.remove('open')}
+$('openAdmin').onclick=openModal;$('closeAdmin').onclick=closeModal;$('cancelAdmin').onclick=closeModal;
+modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
+let stories=[];try{stories=JSON.parse(localStorage.getItem('dnu_stories')||'[]')}catch(e){stories=[]}
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function renderStories(){const root=$('stories');root.innerHTML='';const combined=stories.slice().reverse();if(!combined.length){root.innerHTML='<p class="notice">No stories published yet.</p>';return}combined.forEach(s=>{const card=document.createElement('article');card.className='card';card.innerHTML=(s.image?'<img src="'+s.image+'" alt="Story image">':'<div class="empty-image">DAILY NEWS &amp; UPDATES</div>')+'<div class="card-body"><div class="kicker">'+escapeHTML(s.category)+'</div><h3>'+escapeHTML(s.headline)+'</h3><p>'+escapeHTML(s.summary)+'</p>'+(s.body?'<details><summary>Read article</summary><p>'+escapeHTML(s.body).replace(/\n/g,'<br>')+'</p></details>':'')+'<div class="meta">'+escapeHTML(s.date)+'</div></div>';root.prepend(card)});if(stories.length)$('ticker').textContent=stories[stories.length-1].headline}
+function renderSaved(){$('savedList').innerHTML=stories.length?stories.slice().reverse().map(s=>'<div class="published-item"><span>'+escapeHTML(s.headline)+'</span><button data-id="'+s.id+'">Delete</button></div>').join(''):'<p class="notice">No stories saved yet.</p>';document.querySelectorAll('[data-id]').forEach(b=>b.onclick=()=>{stories=stories.filter(s=>s.id!==b.dataset.id);save();renderSaved();renderStories()})}
+function save(){try{localStorage.setItem('dnu_stories',JSON.stringify(stories))}catch(e){alert('Browser storage is full. Try using a smaller image.')}} 
+$('storyForm').addEventListener('submit',async e=>{e.preventDefault();const file=$('imageFile').files[0];let image='';if(file){if(file.size>1200000){alert('Please choose an image under 1.2 MB for this browser demo.');return}image=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(file)})}
+stories.push({id:Date.now().toString(),headline:$('headline').value.trim(),category:$('category').value,summary:$('summary').value.trim(),body:$('bodyText').value.trim(),image,date:new Date().toLocaleString()});save();renderStories();renderSaved();$('storyForm').reset();alert('Story added to this browser demo.');});
+renderStories();
+</script>
+</body>
+</html>
