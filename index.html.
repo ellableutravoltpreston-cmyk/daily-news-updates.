@@ -1,71 +1,147 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Daily News and Updates | World News</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101827">
+<title>Daily News & Updates</title>
 <style>
-:root{--red:#d71920;--ink:#171717;--muted:#686868;--paper:#f5f5f3;--line:#e3e3e0}
-*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:white}
-a{color:inherit;text-decoration:none}.topline{background:#171717;color:white;padding:9px 5%;font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-header{padding:22px 5% 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{font-size:clamp(22px,3vw,34px);font-weight:900;letter-spacing:-1.2px}.brand span{color:var(--red)}.tagline{color:var(--muted);font-size:12px;margin-top:5px}
-.admin-button{background:var(--red);color:white;border:0;padding:12px 16px;font-weight:800;cursor:pointer;border-radius:3px}
-nav{padding:0 5%;display:flex;gap:26px;overflow:auto;border-bottom:1px solid var(--line);white-space:nowrap}nav a{font-weight:800;font-size:13px;padding:16px 0;border-bottom:3px solid transparent}nav a:hover{border-color:var(--red)}
-.breaking{background:var(--red);color:white;padding:12px 5%;display:flex;gap:14px;align-items:center;font-size:13px;font-weight:700}.breaking strong{background:white;color:var(--red);padding:5px 8px;letter-spacing:.5px}
-main{max-width:1200px;margin:30px auto;padding:0 24px}.section-heading{display:flex;align-items:center;gap:12px;margin:0 0 20px;font-size:21px}.section-heading:before{content:"";width:6px;height:25px;background:var(--red)}
-.hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:22px}.lead{position:relative;min-height:370px;background:#222;color:white;overflow:hidden;border-radius:4px}.lead img{width:100%;height:100%;min-height:370px;object-fit:cover;position:absolute;inset:0;opacity:.72}.lead:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.88))}.lead-content{position:absolute;z-index:1;bottom:25px;left:25px;right:25px}.kicker{color:var(--red);font-weight:900;text-transform:uppercase;font-size:11px;letter-spacing:1px}.lead .kicker{color:#ff6267}.lead h2{font-size:clamp(26px,3.4vw,42px);line-height:1.06;margin:10px 0}.meta{font-size:12px;opacity:.8}.side-stories{display:grid;grid-template-rows:1fr 1fr;gap:16px}.side-story{display:grid;grid-template-columns:42% 1fr;gap:14px;min-height:170px;border-bottom:1px solid var(--line);padding-bottom:14px}.side-story img{width:100%;height:150px;object-fit:cover;border-radius:3px}.side-story h3{font-size:19px;line-height:1.2;margin:8px 0}.story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:32px}.card{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:white}.card img{width:100%;height:175px;object-fit:cover;background:#eee}.card-body{padding:16px}.card h3{font-size:19px;line-height:1.25;margin:8px 0 10px}.card p{color:var(--muted);font-size:13px;line-height:1.55}.empty-image{height:175px;background:linear-gradient(135deg,#eee,#d9d9d9);display:grid;place-items:center;color:#777;font-weight:bold}
-footer{margin-top:50px;background:#171717;color:#ddd;padding:28px 5%;font-size:12px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
-.modal{display:none;position:fixed;inset:0;background:#0009;z-index:10;padding:20px;overflow:auto}.modal.open{display:block}.panel{max-width:700px;margin:30px auto;background:white;padding:24px;border-radius:5px}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.panel h2{margin-top:0}.close{border:0;background:#eee;font-size:22px;width:36px;height:36px;cursor:pointer}label{display:block;font-size:13px;font-weight:800;margin:15px 0 6px}input,select,textarea{width:100%;padding:12px;border:1px solid #ccc;border-radius:3px;font:inherit}textarea{min-height:130px;resize:vertical}.form-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}.secondary{padding:12px 16px;border:1px solid #ccc;background:white;cursor:pointer;font-weight:bold}.notice{font-size:12px;color:var(--muted);line-height:1.5}.published-item{border-top:1px solid var(--line);padding:12px 0;display:flex;justify-content:space-between;gap:12px;align-items:center}.published-item button{border:0;background:#eee;padding:8px;cursor:pointer}
-@media(max-width:760px){header{align-items:flex-start}.hero-grid{grid-template-columns:1fr}.lead{min-height:330px}.lead img{min-height:330px}.side-stories{grid-template-rows:auto}.story-grid{grid-template-columns:1fr}.side-story{min-height:130px}.side-story img{height:125px}main{padding:0 16px}.topline{padding:9px 16px}header,nav,.breaking{padding-left:16px;padding-right:16px}.admin-button{padding:10px;font-size:12px}}
+:root{--ink:#172033;--muted:#657086;--line:#e4e8ef;--paper:#fff;--soft:#f4f6fa;--navy:#101827;--red:#d7263d;--blue:#2857a4}
+*{box-sizing:border-box}body{margin:0;background:var(--soft);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.55}a{color:var(--blue)}button,input,textarea,select{font:inherit}button{cursor:pointer;border:0;border-radius:8px;background:var(--navy);color:#fff;padding:10px 14px;font-weight:700}button.secondary{background:#e8edf5;color:var(--ink)}button.danger{background:#a51d32}button:disabled{opacity:.5;cursor:not-allowed}.wrap{max-width:1120px;margin:auto;padding:0 18px}.top{background:var(--navy);color:#fff;padding:24px 0 18px}.brand{font-size:clamp(25px,4vw,38px);font-weight:900;letter-spacing:-1px;margin:0}.tagline{color:#cbd3e1;margin:2px 0 16px}.topline{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}.nav{display:flex;gap:18px;flex-wrap:wrap;padding-top:14px;border-top:1px solid #344052}.nav a{color:#fff;text-decoration:none;font-size:12px;font-weight:bold;letter-spacing:1px;padding:5px 7px;border-radius:5px}.nav a.active{background:#d7263d;color:#fff}.breaking{background:var(--red);color:white;padding:9px 0;font-weight:bold;font-size:13px}.searchbar{display:flex;gap:10px;align-items:center;margin:0 0 20px;flex-wrap:wrap}.searchbar input{flex:1;min-width:180px;padding:12px 14px;border:1px solid #cfd6e1;border-radius:8px;background:#fff}.searchbar button{white-space:nowrap}.filter-note{font-size:12px;color:var(--muted);margin:-10px 0 18px}.breaking span{margin-right:12px;background:#fff;color:var(--red);padding:3px 7px;border-radius:3px}.main{padding:28px 0 54px}.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:9px;margin:0 0 20px}.sectionhead h2{margin:0;font-size:22px}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.article{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-width:0}.article img{width:100%;height:190px;object-fit:cover;background:#e9edf3}.article-body{padding:16px;display:flex;flex-direction:column;gap:8px;flex:1}.category{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--red);font-weight:800}.article h3{font-size:20px;line-height:1.25;margin:0}.excerpt{color:#596478;margin:0}.meta{font-size:12px;color:#778196;margin-top:auto;padding-top:8px}.article-body .read{align-self:flex-start;margin-top:8px}.empty,.panel{background:white;border:1px solid var(--line);border-radius:12px;padding:22px}.empty{text-align:center;color:var(--muted)}.hidden{display:none!important}.admin-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:18px}.field{display:flex;flex-direction:column;gap:6px;margin:0 0 13px}.field label{font-weight:700;font-size:13px}.field input,.field textarea,.field select{width:100%;padding:10px 11px;border:1px solid #cfd6e1;border-radius:8px;background:#fff;color:var(--ink)}textarea{min-height:130px;resize:vertical}.rowbuttons{display:flex;gap:8px;flex-wrap:wrap}.status{margin:12px 0;padding:10px 12px;border-radius:8px;background:#edf3ff;color:#244578;font-size:14px;white-space:pre-wrap}.status.error{background:#fff0f1;color:#9c2030}.status.ok{background:#e9f8ee;color:#17643a}.adminitem{padding:12px 0;border-bottom:1px solid var(--line)}.adminitem:last-child{border-bottom:0}.adminitem strong{display:block}.foot{background:#101827;color:#cbd3e1;padding:24px 0;font-size:13px}.foot strong{color:#fff}.story{background:#fff;border:1px solid var(--line);border-radius:12px;padding:clamp(18px,4vw,38px)}.story img{width:100%;max-height:480px;object-fit:cover;border-radius:10px;margin:14px 0}.story h1{font-size:clamp(28px,5vw,44px);line-height:1.12;margin:8px 0}.storytext{white-space:pre-wrap;font-size:17px;line-height:1.8}.small{font-size:12px}.top button{background:#fff;color:var(--navy)}@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-layout{grid-template-columns:1fr}}@media(max-width:560px){.grid{grid-template-columns:1fr}.article img{height:210px}.topline{align-items:flex-start}.nav{gap:12px}}
 </style>
 </head>
 <body>
-<div class="topline"><span>WORLD NEWS • LATEST DEVELOPMENTS</span><span id="today"></span></div>
-<header><div><div class="brand">DAILY NEWS <span>&amp; UPDATES</span></div><div class="tagline">The world, clearly reported.</div></div><button class="admin-button" id="openAdmin">＋ PUBLISH A STORY</button></header>
-<nav><a href="#top">HOME</a><a href="#world">WORLD</a><a href="#politics">POLITICS</a><a href="#business">BUSINESS</a><a href="#technology">TECHNOLOGY</a><a href="#science">SCIENCE</a><a href="#latest">LATEST NEWS</a></nav>
-<div class="breaking"><strong>BREAKING</strong><span id="ticker">Your global news briefing starts here — publish a story to share your updates.</span></div>
-<main id="top">
-<h2 class="section-heading">Top Stories</h2>
-<section class="hero-grid" id="world">
-<article class="lead"><img src="https://images.unsplash.com/photo-1529101070884-7f6a1b9f6b5a?auto=format&fit=crop&w=1200&q=80" alt="United Nations flags outside a building"><div class="lead-content"><div class="kicker">World • Editor's pick</div><h2>Understanding the stories shaping our world</h2><div class="meta">DAILY NEWS &amp; UPDATES • EDITORIAL DESK</div></div></article>
-<div class="side-stories">
-<article class="side-story"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=500&q=80" alt="Modern office building"><div><div class="kicker">Business</div><h3>Markets, trade and the global economy</h3><div class="meta">News briefing</div></div></article>
-<article class="side-story"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=500&q=80" alt="Technology circuit board"><div><div class="kicker">Technology</div><h3>Innovation changing everyday life</h3><div class="meta">Technology desk</div></div></article>
-</div>
-</section>
-<h2 class="section-heading" id="latest" style="margin-top:36px">Latest Updates</h2>
-<div class="story-grid" id="stories">
-<article class="card"><img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=800&q=80" alt="World map"><div class="card-body"><div class="kicker">World News</div><h3>Welcome to your global news desk</h3><p>This is a demo story card. Use “Publish a Story” to add your own headline, article text, category and image.</p><div class="meta">DEMO CONTENT</div></div></article>
-<article class="card"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="Earth from space"><div class="card-body"><div class="kicker">Science</div><h3>Stories with a global perspective</h3><p>Share clear, informative updates and help readers understand events from around the world.</p><div class="meta">DEMO CONTENT</div></div></article>
-<article class="card"><img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=80" alt="Newspapers"><div class="card-body"><div class="kicker">Editorial</div><h3>Your voice. Your headlines.</h3><p>Publish your own reporting and images through the demo editor. Newly added stories appear here.</p><div class="meta">DEMO CONTENT</div></div></article>
-</div>
+<header class="top"><div class="wrap">
+ <div class="topline"><div><h1 class="brand">DAILY NEWS &amp; UPDATES</h1><p class="tagline">The world, clearly reported.</p></div><button id="adminToggle">ADMIN LOGIN</button></div>
+ <nav class="nav"><a href="#" data-cat="All">LATEST NEWS</a><a href="#" data-cat="World">WORLD</a><a href="#" data-cat="Politics">POLITICS</a><a href="#" data-cat="Business">BUSINESS</a><a href="#" data-cat="Technology">TECHNOLOGY</a><a href="#" data-cat="Science">SCIENCE</a><a href="#" data-cat="All" data-breaking="true">BREAKING</a></nav>
+</div></header>
+<div class="breaking"><div class="wrap"><span>BREAKING</span><span id="breakingText">Latest headlines and important updates</span></div></div>
+<main class="main wrap">
+ <section id="homeSection"><div class="searchbar"><input id="newsSearch" type="search" placeholder="Search headlines, summaries and articles..." aria-label="Search news"><button type="button" class="secondary" id="clearSearch">CLEAR SEARCH</button></div><p class="filter-note" id="filterNote" aria-live="polite">Showing all published stories</p><div class="sectionhead"><h2 id="sectionTitle">Latest News</h2><span class="muted small" id="articleCount"></span></div><div id="articles" class="grid"></div><div id="empty" class="empty hidden"><h3>No articles published yet</h3><p>Published stories will appear here once an editor adds them.</p></div></section>
+ <section id="storySection" class="hidden"><button class="secondary" id="backHome">← All news</button><div id="storyContent" style="margin-top:16px"></div></section>
+ <section id="adminSection" class="hidden">
+  <div class="sectionhead"><h2>Editor dashboard</h2><span class="muted small">Secure Supabase sign-in</span></div>
+  <div id="loginPanel" class="panel">
+   <h3>Admin sign in</h3><p class="muted">Sign in with the email and password for your Supabase admin account.</p>
+   <form id="loginForm"><div class="field"><label for="loginEmail">Email</label><input id="loginEmail" type="email" autocomplete="username" required></div><div class="field"><label for="loginPassword">Password</label><input id="loginPassword" type="password" autocomplete="current-password" required></div><button type="submit">Sign in</button></form>
+  </div>
+  <div id="editorPanel" class="hidden">
+   <div class="rowbuttons" style="margin-bottom:14px"><button id="newArticle">+ New article</button><button class="secondary" id="refreshAdmin">Refresh articles</button><button class="secondary" id="signOut">Sign out</button></div>
+   <div class="admin-layout">
+    <div class="panel"><h3 id="formTitle">Create article</h3>
+     <form id="articleForm">
+      <input id="articleId" type="hidden">
+      <div class="field"><label for="title">Headline *</label><input id="title" maxlength="180" required></div>
+      <div class="field"><label for="slug">Article URL slug *</label><input id="slug" maxlength="180" required placeholder="example-news-headline"></div>
+      <div class="field"><label for="category">Category</label><select id="category"><option>World</option><option>Politics</option><option>Business</option><option>Technology</option><option>Science</option><option>Health</option><option>Entertainment</option><option>Sports</option></select></div>
+      <div class="field"><label for="excerpt">Short summary</label><textarea id="excerpt" style="min-height:78px"></textarea></div>
+      <div class="field"><label for="content">Article text *</label><textarea id="content" required></textarea></div>
+      <div class="field"><label for="imageFile">Upload article photo (optional)</label><input id="imageFile" type="file" accept="image/*"><span class="muted small">Images are uploaded to your public “article-images” Storage bucket.</span></div>
+      <div class="field"><label for="imageUrl">Or image URL</label><input id="imageUrl" type="url" placeholder="https://..."></div>
+      <div class="field"><label for="imageCredit">Photo credit</label><input id="imageCredit" maxlength="200"></div>
+      <div class="field"><label for="sourceUrl">Source link (optional)</label><input id="sourceUrl" type="url" placeholder="https://..."></div>
+      <div class="field"><label><input id="isBreaking" type="checkbox" style="width:auto"> Mark as breaking news</label><label><input id="published" type="checkbox" style="width:auto"> Publish now (otherwise save as draft)</label></div>
+      <div class="rowbuttons"><button type="submit" id="saveArticle">Save article</button><button class="secondary" type="button" id="resetForm">Clear form</button></div>
+     </form>
+    </div>
+    <div class="panel"><h3>Articles and drafts</h3><p class="muted small">Select an article to edit it.</p><div id="adminArticles"></div></div>
+   </div>
+  </div>
+  <div id="status" class="status hidden" role="status"></div>
+ </section>
 </main>
-<footer><span><strong>DAILY NEWS &amp; UPDATES</strong> — World news and updates.</span><span>Independent demo concept • Verify facts before publishing.</span></footer>
-<div class="modal" id="adminModal" role="dialog" aria-modal="true" aria-labelledby="editorTitle"><div class="panel"><div class="panel-head"><h2 id="editorTitle">Publish a news story</h2><button class="close" id="closeAdmin" aria-label="Close">×</button></div>
-<form id="storyForm"><label for="headline">Headline *</label><input id="headline" required maxlength="140" placeholder="Write a clear, accurate headline">
-<label for="category">Category</label><select id="category"><option>World News</option><option>Politics</option><option>Business</option><option>Technology</option><option>Science</option><option>Health</option><option>Environment</option><option>Culture</option></select>
-<label for="summary">Short summary *</label><textarea id="summary" required maxlength="500" placeholder="Summarize the key facts for readers"></textarea>
-<label for="bodyText">Full article (optional)</label><textarea id="bodyText" placeholder="Write your article here..."></textarea>
-<label for="imageFile">Upload a picture (optional)</label><input id="imageFile" type="file" accept="image/*">
-<p class="notice">This demo saves stories in this browser on this device. It is not yet connected to a secure online database, public publishing server, or user login, so stories won't automatically appear on other devices.</p>
-<div class="form-actions"><button class="admin-button" type="submit">PUBLISH STORY</button><button class="secondary" type="button" id="cancelAdmin">Cancel</button></div></form>
-<h3 style="margin-top:28px">Stories saved in this browser</h3><div id="savedList"></div>
-</div></div>
+<footer class="foot"><div class="wrap"><strong>DAILY NEWS &amp; UPDATES</strong><p>Independent reporting starts with clear sourcing. Verify information before sharing, and credit original reporting and photographs.</p><span>© <span id="year"></span> Daily News &amp; Updates</span></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const $=id=>document.getElementById(id);
-$('today').textContent=new Date().toLocaleDateString(undefined,{weekday:'short',year:'numeric',month:'short',day:'numeric'});
-const modal=$('adminModal');function openModal(){modal.classList.add('open');renderSaved()}function closeModal(){modal.classList.remove('open')}
-$('openAdmin').onclick=openModal;$('closeAdmin').onclick=closeModal;$('cancelAdmin').onclick=closeModal;
-modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
-let stories=[];try{stories=JSON.parse(localStorage.getItem('dnu_stories')||'[]')}catch(e){stories=[]}
-function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function renderStories(){const root=$('stories');root.innerHTML='';const combined=stories.slice().reverse();if(!combined.length){root.innerHTML='<p class="notice">No stories published yet.</p>';return}combined.forEach(s=>{const card=document.createElement('article');card.className='card';card.innerHTML=(s.image?'<img src="'+s.image+'" alt="Story image">':'<div class="empty-image">DAILY NEWS &amp; UPDATES</div>')+'<div class="card-body"><div class="kicker">'+escapeHTML(s.category)+'</div><h3>'+escapeHTML(s.headline)+'</h3><p>'+escapeHTML(s.summary)+'</p>'+(s.body?'<details><summary>Read article</summary><p>'+escapeHTML(s.body).replace(/\n/g,'<br>')+'</p></details>':'')+'<div class="meta">'+escapeHTML(s.date)+'</div></div>';root.prepend(card)});if(stories.length)$('ticker').textContent=stories[stories.length-1].headline}
-function renderSaved(){$('savedList').innerHTML=stories.length?stories.slice().reverse().map(s=>'<div class="published-item"><span>'+escapeHTML(s.headline)+'</span><button data-id="'+s.id+'">Delete</button></div>').join(''):'<p class="notice">No stories saved yet.</p>';document.querySelectorAll('[data-id]').forEach(b=>b.onclick=()=>{stories=stories.filter(s=>s.id!==b.dataset.id);save();renderSaved();renderStories()})}
-function save(){try{localStorage.setItem('dnu_stories',JSON.stringify(stories))}catch(e){alert('Browser storage is full. Try using a smaller image.')}} 
-$('storyForm').addEventListener('submit',async e=>{e.preventDefault();const file=$('imageFile').files[0];let image='';if(file){if(file.size>1200000){alert('Please choose an image under 1.2 MB for this browser demo.');return}image=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(file)})}
-stories.push({id:Date.now().toString(),headline:$('headline').value.trim(),category:$('category').value,summary:$('summary').value.trim(),body:$('bodyText').value.trim(),image,date:new Date().toLocaleString()});save();renderStories();renderSaved();$('storyForm').reset();alert('Story added to this browser demo.');});
-renderStories();
+const SUPABASE_URL = "https://rtclchngxapkhoqamsmq.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_MAiZBjtW9w8_WKU4MdNOiA_LzrVYaDg";
+const BUCKET = "article-images";
+const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+const $ = id => document.getElementById(id);
+let currentCategory = "All", breakingOnly = false, allArticles = [], editing = null, searchTerm = "";
+$("year").textContent = new Date().getFullYear();
+function status(message, kind="") { const el=$("status"); el.textContent=message; el.className="status"+(kind?" "+kind:""); el.classList.remove("hidden"); }
+function clearStatus(){ $("status").classList.add("hidden"); }
+function niceDate(value){ if(!value)return ""; const d=new Date(value); return Number.isNaN(d.getTime())?"":d.toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"}); }
+function safeText(value=""){ return String(value).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function safeUrl(value){ try { const u=new URL(value); return ["https:","http:"].includes(u.protocol)?u.href:""; } catch{return "";} }
+function imageMarkup(url, alt){ const valid=safeUrl(url); return valid?`<img loading="lazy" src="${safeText(valid)}" alt="${safeText(alt||"Article photo")}" onerror="this.style.display='none'">`:""; }
+async function loadPublic(){
+ const {data,error}=await client.from("articles").select("id,title,slug,excerpt,content,category,image_url,image_credit,source_url,is_breaking,published,published_at,created_at").eq("published",true).order("published_at",{ascending:false,nullsFirst:false}).order("created_at",{ascending:false}).limit(100);
+ if(error){ $("articles").innerHTML=""; $("empty").classList.remove("hidden"); $("empty").innerHTML="<h3>News feed could not load</h3><p>Check the Supabase table and public-read policy, then refresh.</p>"; $("articleCount").textContent=""; console.error(error); return; }
+ allArticles=data||[];
+ const breaking=allArticles.find(a=>a.is_breaking); $("breakingText").textContent=breaking?breaking.title:"Latest headlines and important updates";
+ renderArticles();
+}
+function renderArticles(){
+ let rows=allArticles.filter(a=>{const category=String(a.category||"World").trim().toLowerCase();const matchesCategory=currentCategory==="All"||category===currentCategory.toLowerCase();const matchesBreaking=!breakingOnly||!!a.is_breaking;const haystack=[a.title,a.excerpt,a.content,a.category].filter(Boolean).join(" ").toLowerCase();const matchesSearch=!searchTerm||haystack.includes(searchTerm);return matchesCategory&&matchesBreaking&&matchesSearch;});
+ $("sectionTitle").textContent=breakingOnly?"Breaking News":currentCategory==="All"?"Latest News":currentCategory+" News";
+ const note=$("filterNote");if(note)note.textContent="Showing "+rows.length+" matching published stor"+(rows.length===1?"y":"ies")+(currentCategory!=="All"?" in "+currentCategory:"")+(breakingOnly?" marked as breaking":"")+(searchTerm?" for “"+searchTerm+"”":"");
+ $("articleCount").textContent=rows.length+" article"+(rows.length===1?"":"s");
+ $("articles").innerHTML=rows.map(a=>`<article class="article">${imageMarkup(a.image_url,a.title)}<div class="article-body"><span class="category">${safeText(a.category||"World")}${a.is_breaking?" · BREAKING":""}</span><h3>${safeText(a.title)}</h3><p class="excerpt">${safeText(a.excerpt||"")}</p><div class="meta">${safeText(niceDate(a.published_at||a.created_at))}${a.image_credit?" · Photo: "+safeText(a.image_credit):""}</div><button class="read" data-open="${a.id}">Read story</button></div></article>`).join("");
+ $("empty").classList.toggle("hidden",rows.length>0);
+ if(rows.length===0){$("empty").innerHTML="<h3>No matching stories</h3><p>Try another search or choose Latest News to clear the category filter.</p>";}else{$("empty").innerHTML="<h3>No articles published yet</h3><p>Published stories will appear here once an editor adds them.</p>";}
+ $("articles").classList.toggle("hidden",rows.length===0);
+ document.querySelectorAll("[data-cat]").forEach(link=>link.classList.toggle("active",link.dataset.cat===currentCategory&&((link.dataset.breaking==="true")===breakingOnly)));
+ document.querySelectorAll("[data-open]").forEach(b=>b.addEventListener("click",()=>openStory(Number(b.dataset.open))));
+}
+async function openStory(id){
+ const a=allArticles.find(x=>x.id===id); if(!a)return;
+ $("homeSection").classList.add("hidden"); $("adminSection").classList.add("hidden"); $("storySection").classList.remove("hidden");
+ const source=safeUrl(a.source_url);
+ $("storyContent").innerHTML=`<article class="story"><span class="category">${safeText(a.category||"World")}${a.is_breaking?" · BREAKING NEWS":""}</span><h1>${safeText(a.title)}</h1><p class="muted">${safeText(niceDate(a.published_at||a.created_at))}</p>${imageMarkup(a.image_url,a.title)}${a.image_credit?`<p class="muted small">Photo credit: ${safeText(a.image_credit)}</p>`:""}${a.excerpt?`<p><strong>${safeText(a.excerpt)}</strong></p>`:""}<div class="storytext">${safeText(a.content)}</div>${source?`<p class="small">Source: <a href="${safeText(source)}" target="_blank" rel="noopener noreferrer">Read original source</a></p>`:""}</article>`;
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+$("backHome").addEventListener("click",()=>{ $("storySection").classList.add("hidden"); $("homeSection").classList.remove("hidden"); window.scrollTo({top:0,behavior:"smooth"}); });
+document.querySelectorAll("[data-cat]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault(); currentCategory=a.dataset.cat; breakingOnly=a.dataset.breaking==="true"; if(a.dataset.cat==="All"&&a.dataset.breaking!=="true")breakingOnly=false; $("storySection").classList.add("hidden"); $("adminSection").classList.add("hidden"); $("homeSection").classList.remove("hidden"); renderArticles();}));
+$("newsSearch").addEventListener("input",()=>{searchTerm=$("newsSearch").value.trim().toLowerCase();renderArticles();});
+$("clearSearch").addEventListener("click",()=>{$("newsSearch").value="";searchTerm="";currentCategory="All";breakingOnly=false;renderArticles();});
+$("adminToggle").addEventListener("click",()=>{ $("homeSection").classList.add("hidden"); $("storySection").classList.add("hidden"); $("adminSection").classList.remove("hidden"); clearStatus(); window.scrollTo({top:0,behavior:"smooth"}); });
+$("loginForm").addEventListener("submit",async e=>{e.preventDefault();clearStatus(); const {error}=await client.auth.signInWithPassword({email:$("loginEmail").value.trim(),password:$("loginPassword").value}); if(error){status("Sign-in failed: "+error.message,"error");return;} await checkSession();});
+async function checkSession(){
+ const {data:{session}}=await client.auth.getSession();
+ if(session){$("loginPanel").classList.add("hidden");$("editorPanel").classList.remove("hidden");await loadAdminArticles();}
+ else{$("loginPanel").classList.remove("hidden");$("editorPanel").classList.add("hidden");}
+}
+client.auth.onAuthStateChange((_event,session)=>{ if(session){$("loginPanel").classList.add("hidden");$("editorPanel").classList.remove("hidden");} else {$("loginPanel").classList.remove("hidden");$("editorPanel").classList.add("hidden");} });
+async function loadAdminArticles(){
+ clearStatus(); const {data,error}=await client.from("articles").select("*").order("created_at",{ascending:false}).limit(200);
+ if(error){status("Could not load editor articles: "+error.message+" — confirm the admin SELECT policy is installed and sign in again after role changes.","error");return;}
+ const rows=data||[];
+ $("adminArticles").innerHTML=rows.length?rows.map(a=>`<div class="adminitem"><strong>${safeText(a.title)}</strong><div class="muted small">${safeText(a.category)} · ${a.published?"Published":"Draft"}${a.is_breaking?" · Breaking":""}</div><div class="rowbuttons" style="margin-top:8px"><button class="secondary" data-edit="${a.id}">Edit</button><button class="danger" data-delete="${a.id}">Delete</button></div></div>`).join(""):"<p class='muted'>No articles yet. Create your first article.</p>";
+ $("adminArticles").querySelectorAll("[data-edit]").forEach(b=>b.addEventListener("click",()=>editArticle(rows.find(a=>String(a.id)===b.dataset.edit))));
+ $("adminArticles").querySelectorAll("[data-delete]").forEach(b=>b.addEventListener("click",()=>deleteArticle(b.dataset.delete)));
+}
+function editArticle(a){ if(!a)return; editing=a; $("formTitle").textContent="Edit article"; $("articleId").value=a.id; $("title").value=a.title||""; $("slug").value=a.slug||""; $("category").value=a.category||"World"; $("excerpt").value=a.excerpt||""; $("content").value=a.content||""; $("imageUrl").value=a.image_url||""; $("imageCredit").value=a.image_credit||""; $("sourceUrl").value=a.source_url||""; $("isBreaking").checked=!!a.is_breaking; $("published").checked=!!a.published; $("imageFile").value=""; $("articleForm").scrollIntoView({behavior:"smooth",block:"start"}); }
+function resetForm(){editing=null;$("articleForm").reset();$("articleId").value="";$("formTitle").textContent="Create article";}
+$("newArticle").addEventListener("click",resetForm);$("resetForm").addEventListener("click",resetForm);$("refreshAdmin").addEventListener("click",loadAdminArticles);
+$("title").addEventListener("input",()=>{if(!editing||!$("slug").dataset.manual){$("slug").value=$("title").value.toLowerCase().trim().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");}});
+$("slug").addEventListener("input",()=>{$("slug").dataset.manual="true";});
+async function uploadImage(file){
+ if(!file)return $("imageUrl").value.trim()||null;
+ if(!file.type.startsWith("image/"))throw new Error("Please choose an image file.");
+ if(file.size>8*1024*1024)throw new Error("Please choose an image smaller than 8 MB.");
+ const ext=(file.name.split(".").pop()||"jpg").toLowerCase().replace(/[^a-z0-9]/g,"")||"jpg";
+ const path=Date.now()+"-"+Math.random().toString(36).slice(2,9)+"."+ext;
+ const {error}=await client.storage.from(BUCKET).upload(path,file,{upsert:false,contentType:file.type});
+ if(error)throw new Error("Image upload failed: "+error.message+" — check that the article-images bucket and admin storage policies exist.");
+ return client.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
+}
+$("articleForm").addEventListener("submit",async e=>{
+ e.preventDefault(); const btn=$("saveArticle");btn.disabled=true; clearStatus();
+ try{
+  const {data:{user},error:authErr}=await client.auth.getUser(); if(authErr||!user)throw new Error("Please sign in again.");
+  const image_url=await uploadImage($("imageFile").files[0]);
+  const published=$("published").checked;
+  const payload={title:$("title").value.trim(),slug:$("slug").value.trim().toLowerCase().replace(/[^a-z0-9-]+/g,"-").replace(/^-|-$/g,""),category:$("category").value,excerpt:$("excerpt").value.trim()||null,content:$("content").value.trim(),image_url,image_credit:$("imageCredit").value.trim()||null,source_url:$("sourceUrl").value.trim()||null,is_breaking:$("isBreaking").checked,published,published_at:published?(editing?.published_at||new Date().toISOString()):null,updated_at:new Date().toISOString()};
+  if(!payload.slug)throw new Error("Please add a valid URL slug.");
+  const result=editing?await client.from("articles").update(payload).eq("id",editing.id).select().single():await client.from("articles").insert(payload).select().single();
+  if(result.error)throw result.error;
+  status(published?"Article saved and published.":"Draft saved successfully.","ok");resetForm();await loadAdminArticles();await loadPublic();
+ }catch(err){status("Could not save article: "+(err.message||String(err)),"error");}finally{btn.disabled=false;}
+});
+async function deleteArticle(id){ if(!confirm("Delete this article permanently?"))return; const {error}=await client.from("articles").delete().eq("id",id); if(error){status("Delete failed: "+error.message,"error");return;} status("Article deleted.","ok");await loadAdminArticles();await loadPublic(); }
+$("signOut").addEventListener("click",async()=>{await client.auth.signOut();resetForm();status("You have signed out.","ok");});
+checkSession();loadPublic();
 </script>
-</body>
-</html>
+</body></html>
